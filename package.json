@@ -2,6 +2,7 @@
   "name": "proyecto-personal",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "build": "node build.js",
     "dev": "node build.js && npx live-server docs --port=3000 --no-browser",
@@ -14,7 +15,6 @@
   "dependencies": {
     "ejs": "^3.1.10",
     "fs-extra": "^11.3.2",
-    "glob": "^11.0.3",
     "live-server": "^1.2.2"
   }
 }
