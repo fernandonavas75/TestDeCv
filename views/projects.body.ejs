@@ -1,0 +1,20 @@
+<section class="container">
+<h2>Proyectos</h2>
+<div class="grid cols-3">
+<% projects.forEach(p => { %>
+<article class="card">
+<h3><%= p.title %></h3>
+<p><%= p.description %></p>
+<ul>
+<li><strong>Rol:</strong> <%= p.role %></li>
+<li><strong>Tecnologías:</strong> <%= p.tags.join(', ') %></li>
+<% if (p.year) { %><li><strong>Año:</strong> <%= p.year %></li><% } %>
+</ul>
+<p>
+<% if (p.demo) { %><a class="btn" href="<%= p.demo %>">Demo</a><% } %>
+<% if (p.repo) { %><a class="btn" href="<%= p.repo %>">Código</a><% } %>
+</p>
+</article>
+<% }) %>
+</div>
+</section>

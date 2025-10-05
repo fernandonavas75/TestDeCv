@@ -1,0 +1,46 @@
+<section class="container hero">
+<p><%= site.tagline %></p>
+<div class="badges">
+<span class="badge">Node.js</span>
+<span class="badge">Java</span>
+<span class="badge">JavaScript</span>
+<span class="badge">PostgreSQL / MySQL / MariaDB</span>
+<span class="badge">React / Django (templates)</span>
+<span class="badge">Git & GitHub</span>
+</div>
+<p>
+<a class="btn primary" href="./projects.html">Ver proyectos</a>
+<a class="btn" href="./cv/Fernando-Navas-CV.pdf" download>Descargar CV (PDF)</a>
+</p>
+</div>
+<div class="card">
+<h3>Sobre mí</h3>
+<p>
+Soy estudiante en PUCE (Quito) y desarrollador freelance. He trabajado en depuración y pruebas, y me enfoco en backend (Node.js, Java) y bases de datos. Me gustan las motos 🏍️ y optimizar el tiempo en desarrollo.
+</p>
+<ul>
+<li><strong>Ubicación:</strong> <%= site.location %></li>
+<li><strong>Correo:</strong> <a href="mailto:<%= site.email %>"><%= site.email %></a></li>
+</ul>
+</div>
+</section>
+
+
+<section class="container">
+<h3>Proyectos destacados</h3>
+<div class="grid cols-3">
+<% projects.slice(0,3).forEach(p => { %>
+<article class="card">
+<h4><%= p.title %></h4>
+<p><%= p.description %></p>
+<p class="badges">
+<% p.tags.forEach(t => { %><span class="badge"><%= t %></span><% }) %>
+</p>
+<p>
+<% if (p.demo) { %><a class="btn" href="<%= p.demo %>">Demo</a><% } %>
+<% if (p.repo) { %><a class="btn" href="<%= p.repo %>">Código</a><% } %>
+</p>
+</article>
+<% }) %>
+</div>
+</section>

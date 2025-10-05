@@ -1,0 +1,29 @@
+[
+{
+"title": "Sistema de Fisioterapia (Historias Clínicas)",
+"description": "Backend en Node.js + Express + Sequelize con PostgreSQL; módulos de Paciente, Historia Clínica, Evaluación, Seguimientos, etc. API consumida por frontend web y móvil.",
+"role": "Backend Developer",
+"tags": ["Node.js", "Express", "Sequelize", "PostgreSQL", "JWT", "REST API"],
+"repo": "https://github.com/tu-usuario/fisioterapia-api",
+"demo": "",
+"year": 2025
+},
+{
+"title": "GreenBite Labs (Domótica & Ahorro Energético)",
+"description": "Prototipo de plataforma para estimar costos y beneficios de domótica frente a métodos tradicionales, con enfoque en sostenibilidad.",
+"role": "Full-Stack (MVP)",
+"tags": ["Node.js", "Express", "EJS", "Chart.js"],
+"repo": "https://github.com/tu-usuario/greenbite-labs",
+"demo": "",
+"year": 2025
+},
+{
+"title": "Integración de RRHH (SOAP + REST)",
+"description": "Proyecto académico de integración entre Ecuador, Colombia y EE.UU.; API REST en Java Spring Boot y servicio SOAP en Node.js.",
+"role": "Integración de Sistemas",
+"tags": ["Java", "Spring Boot", "SOAP", "Node.js", "PostgreSQL"],
+"repo": "https://github.com/tu-usuario/rrhh-integration",
+"demo": "",
+"year": 2025
+}
+]
