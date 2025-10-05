@@ -1,20 +1,40 @@
 <section class="container">
-<h2>Proyectos</h2>
-<div class="grid cols-3">
-<% projects.forEach(p => { %>
-<article class="card">
-<h3><%= p.title %></h3>
-<p><%= p.description %></p>
-<ul>
-<li><strong>Rol:</strong> <%= p.role %></li>
-<li><strong>Tecnologías:</strong> <%= p.tags.join(', ') %></li>
-<% if (p.year) { %><li><strong>Año:</strong> <%= p.year %></li><% } %>
-</ul>
-<p>
-<% if (p.demo) { %><a class="btn" href="<%= p.demo %>">Demo</a><% } %>
-<% if (p.repo) { %><a class="btn" href="<%= p.repo %>">Código</a><% } %>
-</p>
-</article>
-<% }) %>
-</div>
+  <h2>Proyectos</h2>
+  <div class="grid cols-3">
+    <% projects.forEach(p => { %>
+      <article class="card">
+        <h3><%= p.title %></h3>
+        <p><%= p.description %></p>
+
+        <ul>
+          <li><strong>Rol:</strong> <%= p.role %></li>
+          <li><strong>Tecnologías:</strong> <%= p.tags.join(', ') %></li>
+          <% if (p.year) { %><li><strong>Año:</strong> <%= p.year %></li><% } %>
+        </ul>
+
+        <% if (p.collaborators && p.collaborators.length) { %>
+          <p><strong>Colaboradores:</strong></p>
+          <ul>
+            <% p.collaborators.forEach(c => { %>
+              <li>
+                <% if (c.url) { %>
+                  <a href="<%= c.url %>" target="_blank" rel="noopener">
+                    <%= c.name %>
+                  </a>
+                <% } else { %>
+                  <%= c.name %>
+                <% } %>
+                <% if (c.role) { %> — <em><%= c.role %></em><% } %>
+              </li>
+            <% }) %>
+          </ul>
+        <% } %>
+
+        <p>
+          <% if (p.demo) { %><a class="btn" href="<%= p.demo %>">Demo</a><% } %>
+          <% if (p.repo) { %><a class="btn" href="<%= p.repo %>">Código</a><% } %>
+        </p>
+      </article>
+    <% }) %>
+  </div>
 </section>

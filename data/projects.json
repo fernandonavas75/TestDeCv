@@ -1,29 +1,32 @@
 [
 {
 "title": "Sistema de Fisioterapia (Historias Clínicas)",
-"description": "Backend en Node.js + Express + Sequelize con PostgreSQL; módulos de Paciente, Historia Clínica, Evaluación, Seguimientos, etc. API consumida por frontend web y móvil.",
-"role": "Backend Developer",
+"description": "Backend en Node.js + Express + Sequelize con PostgreSQL; módulos de Paciente, Historia Clínica, Evaluación, Seguimientos, etc. API consumida por frontend web este proytecto y sugerencias para los medicos con IA(Open IA), tiene dos repositorios dentro del enlace esta front y en el readme esta el link del backend",
+"role": "Full-Stack",
 "tags": ["Node.js", "Express", "Sequelize", "PostgreSQL", "JWT", "REST API"],
-"repo": "https://github.com/tu-usuario/fisioterapia-api",
+"repo": "https://github.com/fernandonavas75/front_fisio", 
 "demo": "",
-"year": 2025
+"year": 2025,
+"collaborators":[]
 },
 {
-"title": "GreenBite Labs (Domótica & Ahorro Energético)",
-"description": "Prototipo de plataforma para estimar costos y beneficios de domótica frente a métodos tradicionales, con enfoque en sostenibilidad.",
-"role": "Full-Stack (MVP)",
-"tags": ["Node.js", "Express", "EJS", "Chart.js"],
-"repo": "https://github.com/tu-usuario/greenbite-labs",
+"title": "Mini tienda para colegio",
+"description": "Este proyecto es una mini tienda en línea desarrollada para un colegio, que permite a los estudiantes y personal comprar productos escolares y otros artículos directamente desde la plataforma. La aplicación está construida utilizando Node.js y Express para el backend, con EJS como motor de plantillas para renderizar las vistas del lado del servidor. La tienda ofrece una interfaz amigable donde los usuarios pueden navegar por los productos, agregarlos al carrito de compras y proceder al pago. Además, se implementaron funcionalidades de administración para que el personal del colegio pueda gestionar el inventario de productos, ver órdenes y actualizar detalles de los artículos disponibles. [El desarrllo fue lo mas basico a falta de presupuesto y tiempo]",
+"role": "backend developer" ,
+"tags": ["Python", "HTML", "CSS", "JavaScript"],
+"repo": "http://github.com/fernandonavas75/ProyectoPagado",
 "demo": "",
-"year": 2025
+"year": 2024,
+"collaborators": [{ "name": "Carlos Constante", "role": "FrontEnd", "url": "https://github.com/CarlosC-checarlois" }]
 },
 {
-"title": "Integración de RRHH (SOAP + REST)",
-"description": "Proyecto académico de integración entre Ecuador, Colombia y EE.UU.; API REST en Java Spring Boot y servicio SOAP en Node.js.",
-"role": "Integración de Sistemas",
-"tags": ["Java", "Spring Boot", "SOAP", "Node.js", "PostgreSQL"],
-"repo": "https://github.com/tu-usuario/rrhh-integration",
+"title": "Predicción de Precios de Autos",
+"description": "Proyecto Universitario: Desarrollo de un modelo de Machine Learning para predecir precios de autos usados basado en características como marca, modelo, año y kilometraje. Utilización de Python, pandas, scikit-learn y Jupyter Notebooks para análisis de datos y modelado predictivo.",
+"role": "Dev",
+"tags": ["Jupiter Notebooks"],
+"repo": "https://github.com/fernandonavas75/Predicci-n-de-precios-de-autos",
 "demo": "",
-"year": 2025
+"year": 2024
+"collaborators": []
 }
 ]
