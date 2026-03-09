@@ -1,14 +1,24 @@
 <section class="container">
-  <h2>Proyectos</h2>
+  <div class="hero">
+    <div>
+      <h2>Mis Proyectos</h2>
+      <p>Una selección de proyectos en los que he trabajado, demostrando mis habilidades en desarrollo full-stack, machine learning y más. Cada proyecto refleja mi pasión por resolver problemas reales con tecnología.</p>
+    </div>
+  </div>
   <div class="grid cols-3">
     <% projects.forEach(p => { %>
       <article class="card">
         <h3><%= p.title %></h3>
         <p><%= p.description %></p>
 
+        <div class="badges">
+          <span class="badge"><%= p.role %></span>
+          <% p.tags.forEach(tag => { %>
+            <span class="badge"><%= tag %></span>
+          <% }) %>
+        </div>
+
         <ul>
-          <li><strong>Rol:</strong> <%= p.role %></li>
-          <li><strong>Tecnologías:</strong> <%= p.tags.join(', ') %></li>
           <% if (p.year) { %><li><strong>Año:</strong> <%= p.year %></li><% } %>
         </ul>
 
@@ -31,8 +41,8 @@
         <% } %>
 
         <p>
-          <% if (p.demo) { %><a class="btn" href="<%= p.demo %>">Demo</a><% } %>
-          <% if (p.repo) { %><a class="btn" href="<%= p.repo %>">Código</a><% } %>
+          <% if (p.demo) { %><a class="btn" href="<%= p.demo %>">Ver Demo</a><% } %>
+          <% if (p.repo) { %><a class="btn" href="<%= p.repo %>">Ver Código</a><% } %>
         </p>
       </article>
     <% }) %>
