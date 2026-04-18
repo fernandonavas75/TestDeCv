@@ -1,71 +1,47 @@
-<section class="container">
-  <div class="hero">
-    <!-- Left column -->
-    <div class="hero-left">
-      <span class="hero-tag fade-up d1">
-        <span class="hero-tag-dot"></span>
-        Disponible para proyectos
-      </span>
-      <h2 class="hero-title fade-up d2"><%= site.name %></h2>
-      <p class="hero-role fade-up d3"><%= site.role %></p>
-      <p class="hero-desc fade-up d4"><%= site.tagline %></p>
-      <div class="skill-badges fade-up d5">
-        <span class="skill-badge">Node.js</span>
-        <span class="skill-badge">Java</span>
-        <span class="skill-badge">JavaScript</span>
-        <span class="skill-badge">PostgreSQL</span>
-        <span class="skill-badge">MySQL</span>
-        <span class="skill-badge">React</span>
-        <span class="skill-badge">Git &amp; GitHub</span>
-        <span class="skill-badge">Python</span>
-      </div>
-      <div class="btn-group fade-up d5">
-        <a class="btn primary" href="./projects.html">Ver proyectos</a>
-        <a class="btn" href="./cv/Fernando-Navas-CV-es.pdf" download>CV Español</a>
-        <a class="btn" href="./cv/Fernando-Navas-CV-en.pdf" download>CV English</a>
-      </div>
-    </div>
-
-    <!-- Right column: About me -->
-    <div class="card about-card reveal-right">
-      <h3>Sobre mí</h3>
-      <p style="color:var(--muted);font-size:.9rem">
-        Soy estudiante en PUCE (Quito) y desarrollador freelance. Me enfoco en backend
-        (Node.js, Java) y bases de datos. He trabajado en depuración, pruebas y
-        automatización. Me gustan las motos 🏍️ y optimizar procesos de desarrollo.
-      </p>
-      <ul style="margin-top:12px">
-        <li>📍 <strong>Ubicación:</strong> <%= site.location %></li>
-        <li>✉️ <strong>Correo:</strong> <a href="mailto:<%= site.email %>"><%= site.email %></a></li>
-        <li>🎓 <strong>PUCE</strong> — Ing. Sistemas (2021–2026)</li>
-      </ul>
-    </div>
-  </div>
+<section class="container hero">
+<p><%= site.tagline %></p>
+<div class="badges">
+<span class="badge">Node.js</span>
+<span class="badge">Java</span>
+<span class="badge">JavaScript</span>
+<span class="badge">PostgreSQL / MySQL / MariaDB</span>
+<span class="badge">React / Django (templates)</span>
+<span class="badge">Git & GitHub</span>
+</div>
+<p>
+<a class="btn primary" href="./projects.html">Ver proyectos</a>
+<a class="btn" href="./cv/Fernando-Navas-CV-es.pdf" download>CV Español</a>
+<a class="btn" href="./cv/Fernando-Navas-CV-en.pdf" download>CV English</a>
+</p>
+</div>
+<div class="card">
+<h3>Sobre mí</h3>
+<p>
+Soy estudiante en PUCE (Quito) y desarrollador freelance. He trabajado en depuración y pruebas, y me enfoco en backend (Node.js, Java) y bases de datos. Me gustan las motos 🏍️ y optimizar el tiempo en desarrollo.
+</p>
+<ul>
+<li><strong>Ubicación:</strong> <%= site.location %></li>
+<li><strong>Correo:</strong> <a href="mailto:<%= site.email %>"><%= site.email %></a></li>
+</ul>
+</div>
 </section>
 
-<section class="container" style="padding-top:0">
-  <div class="section-heading reveal">
-    <h2>Proyectos destacados</h2>
-    <p>Una selección de mis trabajos más recientes.</p>
-  </div>
-  <div class="grid cols-3 stagger-reveal">
-    <% projects.slice(0,3).forEach(p => { %>
-    <article class="card">
-      <div class="project-header">
-        <h4><%= p.title %></h4>
-        <% if (p.year) { %><span class="project-year"><%= p.year %></span><% } %>
-      </div>
-      <p class="project-desc"><%= p.description %></p>
-      <div class="badges">
-        <% p.tags.forEach(t => { %><span class="badge"><%= t %></span><% }) %>
-      </div>
-      <div class="card-footer">
-        <div class="btn-group">
-          <% if (p.demo) { %><a class="btn" href="<%= p.demo %>" target="_blank" rel="noopener">Demo</a><% } %>
-          <% if (p.repo) { %><a class="btn" href="<%= p.repo %>" target="_blank" rel="noopener">Código</a><% } %>
-        </div>
-      </div>
-    </article>
-    <% }) %>
-  </div>
+
+<section class="container">
+<h3>Proyectos destacados</h3>
+<div class="grid cols-3">
+<% projects.slice(0,3).forEach(p => { %>
+<article class="card">
+<h4><%= p.title %></h4>
+<p><%= p.description %></p>
+<p class="badges">
+<% p.tags.forEach(t => { %><span class="badge"><%= t %></span><% }) %>
+</p>
+<p>
+<% if (p.demo) { %><a class="btn" href="<%= p.demo %>">Demo</a><% } %>
+<% if (p.repo) { %><a class="btn" href="<%= p.repo %>">Código</a><% } %>
+</p>
+</article>
+<% }) %>
+</div>
 </section>
