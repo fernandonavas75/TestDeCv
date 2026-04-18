@@ -1,50 +1,58 @@
 <section class="container">
-  <div class="hero">
-    <div>
+  <div class="hero" style="padding:56px 0 40px">
+    <div class="reveal-left">
       <h2>Mis Proyectos</h2>
-      <p>Una selección de proyectos en los que he trabajado, demostrando mis habilidades en desarrollo full-stack, machine learning y más. Cada proyecto refleja mi pasión por resolver problemas reales con tecnología.</p>
+      <p style="color:var(--muted);max-width:500px;font-size:1rem">
+        Una selección de proyectos que demuestran mis habilidades en desarrollo
+        full-stack, machine learning y más. Cada uno refleja mi enfoque en
+        resolver problemas reales con tecnología.
+      </p>
     </div>
   </div>
-  <div class="grid cols-3">
+
+  <div class="grid cols-3 stagger-reveal">
     <% projects.forEach(p => { %>
-      <article class="card">
-        <h3><%= p.title %></h3>
-        <p><%= p.description %></p>
-
-        <div class="badges">
+    <article class="card">
+      <div class="project-header">
+        <div class="badges" style="margin-bottom:0">
           <span class="badge"><%= p.role %></span>
-          <% p.tags.forEach(tag => { %>
-            <span class="badge"><%= tag %></span>
-          <% }) %>
         </div>
+        <% if (p.year) { %><span class="project-year"><%= p.year %></span><% } %>
+      </div>
+      <h3 style="margin:12px 0 6px"><%= p.title %></h3>
+      <p class="project-desc"><%= p.description %></p>
 
+      <div class="badges">
+        <% p.tags.forEach(tag => { %>
+          <span class="badge"><%= tag %></span>
+        <% }) %>
+      </div>
+
+      <% if (p.collaborators && p.collaborators.length) { %>
+      <div class="collaborator-list">
+        <p style="font-size:.8rem;color:var(--muted);margin-bottom:4px"><strong>Colaboradores:</strong></p>
         <ul>
-          <% if (p.year) { %><li><strong>Año:</strong> <%= p.year %></li><% } %>
+          <% p.collaborators.forEach(c => { %>
+          <li>
+            <% if (c.url) { %>
+              <a href="<%= c.url %>" target="_blank" rel="noopener"><%= c.name %></a>
+            <% } else { %>
+              <%= c.name %>
+            <% } %>
+            <% if (c.role) { %><em style="color:var(--muted)"> — <%= c.role %></em><% } %>
+          </li>
+          <% }) %>
         </ul>
+      </div>
+      <% } %>
 
-        <% if (p.collaborators && p.collaborators.length) { %>
-          <p><strong>Colaboradores:</strong></p>
-          <ul>
-            <% p.collaborators.forEach(c => { %>
-              <li>
-                <% if (c.url) { %>
-                  <a href="<%= c.url %>" target="_blank" rel="noopener">
-                    <%= c.name %>
-                  </a>
-                <% } else { %>
-                  <%= c.name %>
-                <% } %>
-                <% if (c.role) { %> — <em><%= c.role %></em><% } %>
-              </li>
-            <% }) %>
-          </ul>
-        <% } %>
-
-        <p>
-          <% if (p.demo) { %><a class="btn" href="<%= p.demo %>">Ver Demo</a><% } %>
-          <% if (p.repo) { %><a class="btn" href="<%= p.repo %>">Ver Código</a><% } %>
-        </p>
-      </article>
+      <div class="card-footer">
+        <div class="btn-group">
+          <% if (p.demo) { %><a class="btn primary" href="<%= p.demo %>" target="_blank" rel="noopener">Ver Demo</a><% } %>
+          <% if (p.repo) { %><a class="btn" href="<%= p.repo %>" target="_blank" rel="noopener">Ver Código</a><% } %>
+        </div>
+      </div>
+    </article>
     <% }) %>
   </div>
 </section>

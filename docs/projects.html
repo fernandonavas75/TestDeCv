@@ -3,178 +3,169 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Proyectos — Fernando Navas</title>
-<meta name="description" content="Portafolio de Fernando Navas - Estudiante de Ingeniería en Sistemas | Desarrollador de Software">
+<meta name="theme-color" content="#0a0f1e">
+<title>Fernando Navas | Estudiante de Ingeniería en Sistemas</title>
+<meta name="description" content="Portafolio de Fernando Navas — Estudiante de Ingeniería en Sistemas | Desarrollador de Software">
+<meta name="author" content="Fernando Navas">
+<!-- Open Graph -->
+<meta property="og:type"        content="website">
+<meta property="og:title"       content="Fernando Navas — Portafolio">
+<meta property="og:description" content="Estudiante de Ingeniería en Sistemas | Desarrollador de Software">
+<meta property="og:locale"      content="es_EC">
+<!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Mono:wght@400;500&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
-
-<!-- HEADER -->
 <header class="header">
   <nav class="nav">
-    <a class="brand" href="./index.html">
-      <img class="brand-avatar" src="" alt="Fernando Navas"
-           onerror="this.style.display='none'">
+    <a href="./index.html" class="brand">
+      <img src="./img/avatar.jpg" alt="Avatar de Fernando Navas" onerror="this.style.display='none'">
       <span class="brand-name">Fernando Navas</span>
     </a>
     <div class="menu">
       <a href="./index.html">Inicio</a>
-      <a href="./projects.html" class="active">Proyectos</a>
+      <a href="./projects.html">Proyectos</a>
       <a href="./experience.html">Experiencia</a>
       <a href="./contact.html">Contacto</a>
     </div>
   </nav>
 </header>
 
-<!-- MAIN -->
-<main>
-
-  <div class="page-header">
-    <div>
-      <p class="page-label">Portafolio</p>
-      <h1 class="page-title">Proyectos</h1>
-    </div>
-    <div class="page-count">
-      <span>03</span>
-      proyectos seleccionados
+<main><section class="container">
+  <div class="hero" style="padding:56px 0 40px">
+    <div class="reveal-left">
+      <h2>Mis Proyectos</h2>
+      <p style="color:var(--muted);max-width:500px;font-size:1rem">
+        Una selección de proyectos que demuestran mis habilidades en desarrollo
+        full-stack, machine learning y más. Cada uno refleja mi enfoque en
+        resolver problemas reales con tecnología.
+      </p>
     </div>
   </div>
 
-  <div class="projects-grid">
+  <div class="grid cols-3 stagger-reveal">
+    
+    <article class="card">
+      <div class="project-header">
+        <div class="badges" style="margin-bottom:0">
+          <span class="badge">Full-Stack</span>
+        </div>
+        <span class="project-year">2025</span>
+      </div>
+      <h3 style="margin:12px 0 6px">Sistema de Fisioterapia (Historias Clínicas)</h3>
+      <p class="project-desc">Backend en Node.js + Express + Sequelize con PostgreSQL; módulos de Paciente, Historia Clínica, Evaluación, Seguimientos, etc. API consumida por frontend web este proyecto y sugerencias para los médicos con IA (OpenAI), tiene dos repositorios dentro del enlace está front y en el readme está el link del backend</p>
 
-    <!-- CARD 1: Fisioterapia -->
-    <article class="project-card">
-      <div class="card-number">
-        <span>001</span>
-        <span class="card-year">2025</span>
+      <div class="badges">
+        
+          <span class="badge">Node.js</span>
+        
+          <span class="badge">Express</span>
+        
+          <span class="badge">Sequelize</span>
+        
+          <span class="badge">PostgreSQL</span>
+        
+          <span class="badge">JWT</span>
+        
+          <span class="badge">REST API</span>
+        
       </div>
-      <h2 class="card-title">Sistema de Fisioterapia<br>— Historias Clínicas</h2>
-      <p class="card-desc">
-        Backend en Node.js + Express + Sequelize con PostgreSQL. Módulos de Paciente,
-        Historia Clínica, Evaluación y Seguimientos. API consumida por frontend web con
-        sugerencias para médicos vía IA (OpenAI). Dos repositorios: front e incluye link
-        al backend en el README.
-      </p>
-      <div class="tags">
-        <span class="tag primary">Full-Stack</span>
-        <span class="tag">Node.js</span>
-        <span class="tag">Express</span>
-        <span class="tag">Sequelize</span>
-        <span class="tag">PostgreSQL</span>
-        <span class="tag">JWT</span>
-        <span class="tag">REST API</span>
-        <span class="tag">OpenAI</span>
-      </div>
+
+      
+
       <div class="card-footer">
-        <span></span>
-        <a class="btn-code" href="https://github.com/fernandonavas75/front_fisio" target="_blank" rel="noopener">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
-          </svg>
-          Ver código
-        </a>
+        <div class="btn-group">
+          
+          <a class="btn" href="https://github.com/fernandonavas75/front_fisio" target="_blank" rel="noopener">Ver Código</a>
+        </div>
       </div>
     </article>
+    
+    <article class="card">
+      <div class="project-header">
+        <div class="badges" style="margin-bottom:0">
+          <span class="badge">Backend Developer</span>
+        </div>
+        <span class="project-year">2024</span>
+      </div>
+      <h3 style="margin:12px 0 6px">Mini Tienda para Colegio</h3>
+      <p class="project-desc">Este proyecto es una mini tienda en línea desarrollada para un colegio, que permite a los estudiantes y personal comprar productos escolares y otros artículos directamente desde la plataforma. La aplicación está construida utilizando Node.js y Express para el backend, con EJS como motor de plantillas para renderizar las vistas del lado del servidor. La tienda ofrece una interfaz amigable donde los usuarios pueden navegar por los productos, agregarlos al carrito de compras y proceder al pago. Además, se implementaron funcionalidades de administración para que el personal del colegio pueda gestionar el inventario de productos, ver órdenes y actualizar detalles de los artículos disponibles. [El desarrollo fue lo más básico a falta de presupuesto y tiempo]</p>
 
-    <!-- CARD 2: Mini Tienda -->
-    <article class="project-card">
-      <div class="card-number">
-        <span>002</span>
-        <span class="card-year">2024</span>
+      <div class="badges">
+        
+          <span class="badge">Python</span>
+        
+          <span class="badge">HTML</span>
+        
+          <span class="badge">CSS</span>
+        
+          <span class="badge">JavaScript</span>
+        
       </div>
-      <h2 class="card-title">Mini Tienda<br>para Colegio</h2>
-      <p class="card-desc">
-        Tienda en línea para institución educativa. Carrito de compras, gestión de inventario
-        y panel administrativo. Node.js + Express con EJS para renderizado server-side.
-      </p>
-      <div class="tags">
-        <span class="tag primary">Backend</span>
-        <span class="tag">Node.js</span>
-        <span class="tag">EJS</span>
-        <span class="tag">JavaScript</span>
-        <span class="tag">HTML/CSS</span>
+
+      
+      <div class="collaborator-list">
+        <p style="font-size:.8rem;color:var(--muted);margin-bottom:4px"><strong>Colaboradores:</strong></p>
+        <ul>
+          
+          <li>
+            
+              <a href="https://github.com/CarlosC-checarlois" target="_blank" rel="noopener">Carlos Constante</a>
+            
+            <em style="color:var(--muted)"> — FrontEnd</em>
+          </li>
+          
+        </ul>
       </div>
+      
+
       <div class="card-footer">
-        <div class="collaborators">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-            <circle cx="9" cy="7" r="4"/>
-            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-          </svg>
-          <a class="collab-link" href="https://github.com/CarlosC-checarlois" target="_blank" rel="noopener">
-            Carlos Constante
-          </a>
-          — Frontend
-        </div>
-        <a class="btn-code" href="http://github.com/fernandonavas75/ProyectoPagado" target="_blank" rel="noopener">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
-          </svg>
-          Ver código
-        </a>
-      </div>
-    </article>
-
-    <!-- CARD 3: ML Autos -->
-    <article class="project-card horizontal">
-      <div class="card-main">
-        <div class="card-number">
-          <span>003</span>
-          <span class="card-year">2024</span>
-        </div>
-        <h2 class="card-title">Predicción de Precios de Autos</h2>
-        <p class="card-desc">
-          Proyecto universitario de Machine Learning para predecir precios de autos usados.
-          El modelo analiza marca, modelo, año y kilometraje para generar estimaciones
-          de valor. Pipeline completo de análisis exploratorio, feature engineering y
-          modelado con scikit-learn en Jupyter Notebooks.
-        </p>
-        <div class="tags">
-          <span class="tag primary">Machine Learning</span>
-          <span class="tag">Python</span>
-          <span class="tag">pandas</span>
-          <span class="tag">scikit-learn</span>
-          <span class="tag">Jupyter</span>
-          <span class="tag">EDA</span>
-        </div>
-        <div class="card-footer">
-          <span></span>
-          <a class="btn-code" href="https://github.com/fernandonavas75/Predicci-n-de-precios-de-autos" target="_blank" rel="noopener">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
-            </svg>
-            Ver código
-          </a>
-        </div>
-      </div>
-      <div class="card-side">
-        <div>
-          <p class="side-label">Stack principal</p>
-          <p class="side-stat">ML</p>
-        </div>
-        <div>
-          <p class="side-label">Lenguaje</p>
-          <p class="side-value">Python 3</p>
-        </div>
-        <div>
-          <p class="side-label">Tipo</p>
-          <p class="side-value">Universitario</p>
-        </div>
-        <div>
-          <p class="side-label">Algoritmo</p>
-          <p class="side-value accent">Regresión supervisada</p>
+        <div class="btn-group">
+          
+          <a class="btn" href="http://github.com/fernandonavas75/ProyectoPagado" target="_blank" rel="noopener">Ver Código</a>
         </div>
       </div>
     </article>
+    
+    <article class="card">
+      <div class="project-header">
+        <div class="badges" style="margin-bottom:0">
+          <span class="badge">Dev</span>
+        </div>
+        <span class="project-year">2024</span>
+      </div>
+      <h3 style="margin:12px 0 6px">Predicción de Precios de Autos</h3>
+      <p class="project-desc">Proyecto Universitario: Desarrollo de un modelo de Machine Learning para predecir precios de autos usados basado en características como marca, modelo, año y kilometraje. Utilización de Python, pandas, scikit-learn y Jupyter Notebooks para análisis de datos y modelado predictivo.</p>
 
+      <div class="badges">
+        
+          <span class="badge">Jupyter Notebooks</span>
+        
+          <span class="badge">Python</span>
+        
+          <span class="badge">pandas</span>
+        
+          <span class="badge">scikit-learn</span>
+        
+      </div>
+
+      
+
+      <div class="card-footer">
+        <div class="btn-group">
+          
+          <a class="btn" href="https://github.com/fernandonavas75/Predicci-n-de-precios-de-autos" target="_blank" rel="noopener">Ver Código</a>
+        </div>
+      </div>
+    </article>
+    
   </div>
+</section>
 </main>
 
-<!-- FOOTER -->
 <footer class="footer">
   © 2026 Fernando Navas &nbsp;·&nbsp;
   <a href="https://github.com/fernandonavas75" target="_blank" rel="noopener">GitHub</a>
@@ -182,5 +173,6 @@
   <a href="https://www.linkedin.com/in/fernando-jos%C3%A9-navas-molina-27a0b120b/" target="_blank" rel="noopener">LinkedIn</a>
 </footer>
 
+<script src="./js/main.js"></script>
 </body>
 </html>

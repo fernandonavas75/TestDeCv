@@ -1,10 +1,47 @@
 <section class="container">
-<h2>Contacto</h2>
-<div class="card">
-<p>¿Quieres conversar sobre un proyecto o colaboración? Escríbeme:</p>
-<p>
-<a class="btn primary" href="mailto:<%= site.email %>">Enviar correo</a>
-<!-- Alternativa: usa Formspree o Getform y reemplaza el mailto por un <form> apuntando a su endpoint -->
-</p>
-</div>
+  <div class="section-heading reveal">
+    <h2>Contacto</h2>
+    <p>¿Tienes un proyecto en mente o quieres colaborar? Escríbeme, respondo rápido.</p>
+  </div>
+
+  <div class="card reveal" style="max-width:600px">
+    <h3 style="margin-bottom:6px">Hablemos 👋</h3>
+    <p style="color:var(--muted);font-size:.95rem;margin-bottom:0">
+      Estoy disponible para proyectos freelance, colaboraciones y oportunidades laborales.
+    </p>
+
+    <div class="contact-grid">
+      <a class="contact-link" href="mailto:<%= site.email %>">
+        <span class="contact-icon">✉️</span>
+        <div class="contact-text">
+          Correo electrónico
+          <small><%= site.email %></small>
+        </div>
+      </a>
+
+      <a class="contact-link" href="<%= site.github %>" target="_blank" rel="noopener">
+        <span class="contact-icon">🐙</span>
+        <div class="contact-text">
+          GitHub
+          <small>fernandonavas75</small>
+        </div>
+      </a>
+
+      <a class="contact-link" href="<%= site.linkedin %>" target="_blank" rel="noopener">
+        <span class="contact-icon">💼</span>
+        <div class="contact-text">
+          LinkedIn
+          <small>Fernando Navas Molina</small>
+        </div>
+      </a>
+
+      <a class="contact-link" href="./cv/Fernando-Navas-CV-es.pdf" download>
+        <span class="contact-icon">📄</span>
+        <div class="contact-text">
+          Descargar CV
+          <small>Español / English</small>
+        </div>
+      </a>
+    </div>
+  </div>
 </section>
