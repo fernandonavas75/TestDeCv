@@ -1,10 +1,10 @@
 // README.md
-# Portafolio de Fernando Navas — GitHub Pages (EJS → HTML estático)
+# Portafolio de Fernando Navas — GitHub Pages
 
+El sitio vive directamente en `/docs` (HTML estático editado a mano). GitHub Pages lo sirve tal cual, sin paso de build.
 
 ## Requisitos
 - Node.js 18+
-
 
 ## Desarrollo local
 ```bash
@@ -13,8 +13,7 @@ npm run dev
 # abre http://localhost:3000 (servidor estático para /docs)
 ```
 
-
-## Build
+## Publicar cambios
 ```bash
-npm run build
-# genera HTML estático en /docs (index.html, projects.html, experience.html, contact.html)
+npm run deploy
+# hace commit y push de /docs

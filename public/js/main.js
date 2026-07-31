@@ -1,1 +1,0 @@
-console.log('Portafolio de Fernando cargado (GitHub Pages).')
