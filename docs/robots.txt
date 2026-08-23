@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://fernandonavas75.github.io/TestDeCv/sitemap.xml

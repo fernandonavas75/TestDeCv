@@ -4,7 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Fernando Navas — Desarrollador de Software</title>
-<meta name="description" content="Portafolio de Fernando Navas - Desarrollador de Software Junior &amp; QA Specialist Intern | Backend, Full-Stack, Testing">
+<meta name="description" content="Portafolio de Fernando Navas, Ingeniero en Sistemas (PUCE), Jr. QA Specialist en NTT DATA y Technical Lead en Newdria. Backend, Microservicios y Testing.">
+<link rel="icon" type="image/svg+xml" href="./favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Fernando Navas — Portafolio">
+<meta property="og:title" content="Fernando Navas — Desarrollador de Software">
+<meta property="og:description" content="Portafolio de Fernando Navas, Ingeniero en Sistemas (PUCE), Jr. QA Specialist en NTT DATA y Technical Lead en Newdria. Backend, Microservicios y Testing.">
+<meta property="og:url" content="https://fernandonavas75.github.io/TestDeCv/index.html">
+<meta property="og:image" content="https://fernandonavas75.github.io/TestDeCv/img/avatar.jpg">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Fernando Navas — Desarrollador de Software">
+<meta name="twitter:description" content="Portafolio de Fernando Navas, Ingeniero en Sistemas (PUCE), Jr. QA Specialist en NTT DATA y Technical Lead en Newdria. Backend, Microservicios y Testing.">
+<meta name="twitter:image" content="https://fernandonavas75.github.io/TestDeCv/img/avatar.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
@@ -16,8 +27,9 @@
 <header class="header">
   <nav class="nav">
     <a class="brand" href="./index.html">
-      <img class="brand-avatar" src="" alt="Fernando Navas"
-           onerror="this.style.display='none'">
+      <div class="brand-avatar">
+        <img src="./img/avatar.jpg" alt="Fernando Navas" onerror="this.remove()">
+      </div>
       <span class="brand-name">Fernando Navas</span>
     </a>
     <div class="menu">
@@ -41,20 +53,21 @@
         <p class="page-label">Disponible para proyectos</p>
         <h1 class="hero-title">Ingeniero en<br>Sistemas &amp;<br><span class="hero-title-accent">Full-Stack &amp; QA</span></h1>
         <p class="hero-bio">
-          Ingeniero en Sistemas de la Información graduado de la PUCE (Quito)
-          y QA Specialist Intern en NTT DATA. Experiencia en desarrollo full-stack, pruebas
-          manuales y automatizadas (Selenium, Cucumber, Karate) y automatización de procesos
-          con Power Platform. Orientado a resultados, trabajo en equipo y aprendizaje continuo.
+          Ingeniero en Sistemas de la Información graduado de la PUCE (Quito).
+          Jr. Quality Assurance Specialist en NTT DATA (Playwright, E2E) y Co-Fundador &amp;
+          Technical Lead en Newdria, donde diseño una arquitectura de microservicios con
+          Node.js, Express y PostgreSQL. Combino desarrollo backend, testing manual y
+          automatizado (Selenium, Cucumber, Karate, Playwright) y seguridad de APIs.
         </p>
         <div class="hero-stack">
           <span class="tag primary">Node.js</span>
           <span class="tag">Java</span>
           <span class="tag">JavaScript</span>
           <span class="tag">PostgreSQL</span>
-          <span class="tag">MySQL</span>
-          <span class="tag">React</span>
+          <span class="tag">Docker</span>
+          <span class="tag">Microservicios</span>
+          <span class="tag">Playwright</span>
           <span class="tag">QA / Testing</span>
-          <span class="tag">Git</span>
         </div>
         <div class="hero-actions">
           <a class="btn-primary" href="./projects.html">Ver proyectos</a>
@@ -67,8 +80,9 @@
       <aside class="about-card">
         <div class="about-card-header">
           <div class="about-avatar-wrap">
-            <img src="" alt="Fernando Navas" class="about-avatar"
-                 onerror="this.style.display='none'">
+            <div class="about-avatar">
+              <img src="./img/avatar.jpg" alt="Fernando Navas" onerror="this.remove()">
+            </div>
             <span class="about-status"></span>
           </div>
           <div>
@@ -77,9 +91,10 @@
           </div>
         </div>
         <p class="about-text">
-          QA Specialist Intern en NTT DATA. Me especializo en backend con Node.js y Java,
-          testing manual y automatizado (Selenium, Cucumber, Karate) y APIs REST. Me gustan
-          las motos 🏍️ y optimizar el tiempo en cada proyecto.
+          Jr. QA Specialist en NTT DATA y Technical Lead en Newdria. Me especializo en
+          backend con Node.js y Java, arquitectura de microservicios, APIs REST seguras
+          y testing manual y automatizado (Selenium, Cucumber, Karate, Playwright). Me
+          gustan las motos 🏍️ y optimizar el tiempo en cada proyecto.
         </p>
         <ul class="about-meta">
           <li>
@@ -123,10 +138,40 @@
 
     <div class="projects-grid">
 
-      <!-- CARD 1 -->
+      <!-- CARD 1: Newdria -->
       <article class="project-card">
         <div class="card-number">
-          <span>001</span>
+          <div class="card-index">
+            <span>001</span>
+            <span class="card-status live">En producción</span>
+          </div>
+          <span class="card-year">2026</span>
+        </div>
+        <h3 class="card-title">Newdria<br>— Plataforma Académica con Microservicios</h3>
+        <p class="card-desc">
+          Arquitectura de microservicios con Node.js, Express y PostgreSQL: API Gateway,
+          autenticación JWT con RBAC, integración de OpenAI Realtime para speaking en inglés
+          y 117 pruebas automatizadas con Jest y Supertest. Docker Compose con 7 contenedores.
+        </p>
+        <div class="tags">
+          <span class="tag primary">Microservicios</span>
+          <span class="tag">Node.js</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">Docker</span>
+          <span class="tag">JWT / RBAC</span>
+        </div>
+        <div class="card-footer">
+          <span>Co-Fundador &amp; Technical Lead</span>
+        </div>
+      </article>
+
+      <!-- CARD 2: PymeFlowEc -->
+      <article class="project-card">
+        <div class="card-number">
+          <div class="card-index">
+            <span>002</span>
+            <span class="card-status thesis">Tesis de grado</span>
+          </div>
           <span class="card-year">2026</span>
         </div>
         <h3 class="card-title">PymeFlowEc<br>— SaaS ERP para Pymes</h3>
@@ -156,10 +201,13 @@
         </div>
       </article>
 
-      <!-- CARD 2 -->
+      <!-- CARD 3: Fisioterapia -->
       <article class="project-card">
         <div class="card-number">
-          <span>002</span>
+          <div class="card-index">
+            <span>003</span>
+            <span class="card-status">Proyecto personal</span>
+          </div>
           <span class="card-year">2025</span>
         </div>
         <h3 class="card-title">Sistema de Fisioterapia<br>— Historias Clínicas</h3>
@@ -177,32 +225,6 @@
         <div class="card-footer">
           <span></span>
           <a class="btn-code" href="https://github.com/fernandonavas75/front_fisio" target="_blank" rel="noopener">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-            Ver código
-          </a>
-        </div>
-      </article>
-
-      <!-- CARD 3 -->
-      <article class="project-card">
-        <div class="card-number">
-          <span>003</span>
-          <span class="card-year">2024</span>
-        </div>
-        <h3 class="card-title">Mini Tienda<br>para Colegio</h3>
-        <p class="card-desc">
-          Tienda en línea para institución educativa con carrito de compras, gestión de
-          inventario y panel administrativo. Node.js + Express con EJS server-side.
-        </p>
-        <div class="tags">
-          <span class="tag primary">Backend</span>
-          <span class="tag">Node.js</span>
-          <span class="tag">EJS</span>
-          <span class="tag">JavaScript</span>
-        </div>
-        <div class="card-footer">
-          <span></span>
-          <a class="btn-code" href="http://github.com/fernandonavas75/ProyectoPagado" target="_blank" rel="noopener">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
             Ver código
           </a>
