@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>API Testing — Fernando Navas</title>
+<meta name="description" content="Suites de pruebas de API en vivo de Fernando Navas: peticiones HTTP reales, assertions y tiempos de respuesta medidos en el navegador contra APIs reales como Swagger Petstore.">
+<link rel="icon" type="image/svg+xml" href="./favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Fernando Navas — Portafolio">
+<meta property="og:title" content="API Testing — Fernando Navas">
+<meta property="og:description" content="Suites de pruebas de API en vivo: peticiones HTTP reales, assertions y tiempos de respuesta medidos en el navegador contra APIs reales.">
+<meta property="og:url" content="https://fernandonavas75.github.io/TestDeCv/api-testing.html">
+<meta property="og:image" content="https://fernandonavas75.github.io/TestDeCv/img/avatar.jpg">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="API Testing — Fernando Navas">
+<meta name="twitter:description" content="Suites de pruebas de API en vivo: peticiones HTTP reales, assertions y tiempos de respuesta medidos en el navegador contra APIs reales.">
+<meta name="twitter:image" content="https://fernandonavas75.github.io/TestDeCv/img/avatar.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <nav class="nav">
+    <a class="brand" href="./index.html">
+      <div class="brand-avatar">
+        <img src="./img/avatar.jpg" alt="Fernando Navas" onerror="this.remove()">
+      </div>
+      <span class="brand-name">Fernando Navas</span>
+    </a>
+    <div class="menu">
+      <a href="./index.html">Inicio</a>
+      <a href="./projects.html">Proyectos</a>
+      <a href="./api-testing.html" class="active">API Testing</a>
+      <a href="./experience.html">Experiencia</a>
+      <a href="./contact.html">Contacto</a>
+    </div>
+  </nav>
+</header>
+
+<!-- MAIN -->
+<main class="apitest-main">
+
+  <div class="page-header">
+    <div>
+      <p class="page-label">Demo interactiva</p>
+      <h1 class="page-title">API Testing</h1>
+    </div>
+    <div class="page-count">
+      <span>01</span>
+      suite disponible
+    </div>
+  </div>
+
+  <p class="apitest-intro">
+    Cada tarjeta es una <strong>suite de regresión que corre en vivo desde tu navegador</strong>
+    (peticiones HTTP reales por <code>fetch()</code>, sin backend intermedio) contra una API
+    pública real, al estilo de las suites que diseño con <strong>Karate</strong>,
+    <strong>Jest/Supertest</strong> y <strong>Postman/Newman</strong>. Elige una suite para ver
+    el detalle de cada caso, ejecutarla y revisar el log de requests/responses reales.
+  </p>
+
+  <!-- Suite grid -->
+  <div class="suite-grid">
+
+    <a class="suite-card" href="./suite-petstore.html">
+      <div class="suite-card-top">
+        <div class="suite-card-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+        </div>
+        <span class="suite-card-status live">Disponible</span>
+      </div>
+      <h2 class="suite-card-title">Swagger Petstore</h2>
+      <p class="suite-card-desc">
+        CRUD completo contra <code>petstore.swagger.io/v2</code>: mascotas, órdenes de
+        tienda y usuarios. Crea, actualiza, verifica y elimina recursos reales.
+      </p>
+      <div class="tags">
+        <span class="tag primary">22 casos</span>
+        <span class="tag">/pet</span>
+        <span class="tag">/store</span>
+        <span class="tag">/user</span>
+      </div>
+      <div class="suite-card-footer">
+        <span>petstore.swagger.io/v2</span>
+        <span class="suite-card-cta">
+          Entrar al suite
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </span>
+      </div>
+    </a>
+
+    <div class="suite-card suite-card--soon">
+      <div class="suite-card-top">
+        <div class="suite-card-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </div>
+        <span class="suite-card-status">Próximamente</span>
+      </div>
+      <h2 class="suite-card-title">Nueva suite</h2>
+      <p class="suite-card-desc">
+        Espacio reservado para la siguiente suite de endpoints reales (por ejemplo, una API
+        de e-commerce o de autenticación) — se agrega aquí como una tarjeta más.
+      </p>
+      <div class="tags">
+        <span class="tag">En construcción</span>
+      </div>
+      <div class="suite-card-footer">
+        <span>—</span>
+      </div>
+    </div>
+
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  © 2026 Fernando Navas &nbsp;·&nbsp;
+  <a href="https://github.com/fernandonavas75" target="_blank" rel="noopener">GitHub</a>
+  &nbsp;·&nbsp;
+  <a href="https://www.linkedin.com/in/fernando-jos%C3%A9-navas-molina-27a0b120b/" target="_blank" rel="noopener">LinkedIn</a>
+</footer>
+
+<script src="./js/main.js"></script>
+</body>
+</html>

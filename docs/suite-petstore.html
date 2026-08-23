@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Suite Petstore — API Testing — Fernando Navas</title>
+<meta name="description" content="Suite de pruebas de API en vivo de Fernando Navas contra la Swagger Petstore real (petstore.swagger.io): peticiones HTTP reales, assertions y tiempos de respuesta medidos en el navegador.">
+<link rel="icon" type="image/svg+xml" href="./favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Fernando Navas — Portafolio">
+<meta property="og:title" content="Suite Petstore — API Testing — Fernando Navas">
+<meta property="og:description" content="Suite de pruebas de API en vivo contra la Swagger Petstore real: peticiones HTTP reales, assertions y tiempos de respuesta medidos en el navegador.">
+<meta property="og:url" content="https://fernandonavas75.github.io/TestDeCv/suite-petstore.html">
+<meta property="og:image" content="https://fernandonavas75.github.io/TestDeCv/img/avatar.jpg">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Suite Petstore — API Testing — Fernando Navas">
+<meta name="twitter:description" content="Suite de pruebas de API en vivo contra la Swagger Petstore real: peticiones HTTP reales, assertions y tiempos de respuesta medidos en el navegador.">
+<meta name="twitter:image" content="https://fernandonavas75.github.io/TestDeCv/img/avatar.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <nav class="nav">
+    <a class="brand" href="./index.html">
+      <div class="brand-avatar">
+        <img src="./img/avatar.jpg" alt="Fernando Navas" onerror="this.remove()">
+      </div>
+      <span class="brand-name">Fernando Navas</span>
+    </a>
+    <div class="menu">
+      <a href="./index.html">Inicio</a>
+      <a href="./projects.html">Proyectos</a>
+      <a href="./api-testing.html" class="active">API Testing</a>
+      <a href="./experience.html">Experiencia</a>
+      <a href="./contact.html">Contacto</a>
+    </div>
+  </nav>
+</header>
+
+<!-- MAIN -->
+<main class="apitest-main">
+
+  <a class="back-link" href="./api-testing.html">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+    Volver a suites de pruebas
+  </a>
+
+  <div class="page-header">
+    <div>
+      <p class="page-label">Suite en vivo</p>
+      <h1 class="page-title">Swagger Petstore</h1>
+    </div>
+    <div class="page-count">
+      <span id="pageCount">09</span>
+      casos de prueba
+    </div>
+  </div>
+
+  <p class="apitest-intro">
+    Suite de regresión ejecutada <strong>en vivo desde tu navegador</strong> (peticiones HTTP
+    reales por <code>fetch()</code>, sin backend intermedio) contra la
+    <a href="https://petstore.swagger.io/" target="_blank" rel="noopener">Swagger Petstore</a>
+    pública (<code>petstore.swagger.io/v2</code>), al estilo de las suites que diseño con
+    <strong>Karate</strong>, <strong>Jest/Supertest</strong> y <strong>Postman/Newman</strong>:
+    crea, actualiza, verifica y elimina un recurso real, midiendo status code, tiempo de
+    respuesta y payload en cada paso. Al ser una API demo pública y compartida, algún caso
+    puede fallar de forma real si otro usuario está modificando los mismos datos — eso
+    también forma parte de probar contra un entorno vivo.
+  </p>
+
+  <!-- Toolbar -->
+  <div class="suite-toolbar">
+    <button class="btn-run" id="runBtn">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      <span id="runBtnLabel">Ejecutar suite</span>
+    </button>
+    <div class="suite-stats">
+      <div class="stat-chip">
+        <span class="stat-label">Total</span>
+        <span class="stat-value" id="statTotal">9</span>
+      </div>
+      <div class="stat-chip stat-chip--pass">
+        <span class="stat-label">Pass</span>
+        <span class="stat-value" id="statPass">0</span>
+      </div>
+      <div class="stat-chip stat-chip--fail">
+        <span class="stat-label">Fail</span>
+        <span class="stat-value" id="statFail">0</span>
+      </div>
+      <div class="stat-chip stat-chip--dur">
+        <span class="stat-label">Duración</span>
+        <span class="stat-value" id="statDur">0ms</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Test groups (rendered by JS) -->
+  <div class="test-groups" id="testGroups"></div>
+
+  <!-- Console output -->
+  <div class="console-panel">
+    <div class="console-panel-header">
+      <span class="console-dot console-dot--r"></span>
+      <span class="console-dot console-dot--y"></span>
+      <span class="console-dot console-dot--g"></span>
+      <span class="console-title">test-runner — petstore.swagger.io/v2</span>
+    </div>
+    <div class="console-body" id="consoleBody">
+      <p class="console-line console-line--muted">$ esperando ejecución… pulsa «Ejecutar suite»</p>
+    </div>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  © 2026 Fernando Navas &nbsp;·&nbsp;
+  <a href="https://github.com/fernandonavas75" target="_blank" rel="noopener">GitHub</a>
+  &nbsp;·&nbsp;
+  <a href="https://www.linkedin.com/in/fernando-jos%C3%A9-navas-molina-27a0b120b/" target="_blank" rel="noopener">LinkedIn</a>
+</footer>
+
+<script src="./js/main.js"></script>
+<script>
+(function () {
+  var BASE = 'https://petstore.swagger.io/v2';
+  // Unique ids per run so concurrent visitors running the suite don't collide on shared demo data.
+  var runSeed = Date.now() % 1000000000;
+  var petId = runSeed;
+  var orderId = runSeed + 1;
+  var userId = runSeed + 2;
+  var petName = 'QA-Rex-' + petId;
+  var username = 'qa_user_' + userId;
+
+  // ── Cómo agregar más endpoints a esta suite ──────────────────────────────
+  // Agrega un objeto a TESTS con:
+  //   group, method, path (solo para mostrar en la UI), expectLabel, given,
+  //   request()  → { method, url, body? }
+  //   assert(ctx) → { pass, message }  (ctx = { res, json, text })
+  // Usa el helper expectStatus(ctx, code) al inicio de assert() para el
+  // chequeo de status code y evitar repetirlo en cada test.
+  // ──────────────────────────────────────────────────────────────────────────
+  function expectStatus(ctx, status) {
+    if (ctx.res.status !== status) {
+      var hint = ctx.text ? ' — ' + ctx.text.slice(0, 140) : '';
+      return { pass: false, message: 'Esperaba ' + status + ', recibí ' + ctx.res.status + hint };
+    }
+    return null;
+  }
+
+  var GROUPS = [
+    {
+      key: 'pets',
+      title: 'Mascotas (/pet)',
+      icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>'
+    },
+    {
+      key: 'store',
+      title: 'Tienda (/store)',
+      icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>'
+    },
+    {
+      key: 'users',
+      title: 'Usuarios (/user)',
+      icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>'
+    }
+  ];
+
+  // Each test: {group, method, path, expectLabel, given, request(), assert(ctx)}
+  // request() returns {url, method, body}. assert(ctx) receives {res, json, text} and returns {pass, message}.
+  var TESTS = [
+
+    // ── Mascotas (/pet) ──────────────────────────────────────────────────
+    {
+      group: 'pets', method: 'GET', path: '/pet/findByStatus?status=available', expectLabel: '200',
+      given: 'Catálogo público de mascotas disponibles',
+      request: function () { return { method: 'GET', url: BASE + '/pet/findByStatus?status=available' }; },
+      assert: function (ctx) {
+        var fail = expectStatus(ctx, 200); if (fail) return fail;
+        if (!Array.isArray(ctx.json)) return { pass: false, message: 'La respuesta debía ser un array de mascotas' };
+        return { pass: true, message: 'status 200, ' + ctx.json.length + ' mascotas con status "available"' };
+      }
+    },
+    {
+      group: 'pets', method: 'GET', path: '/pet/findByTags?tags=test', expectLabel: '200',
+      given: 'Buscar mascotas por tag',
+      request: function () { return { method: 'GET', url: BASE + '/pet/findByTags?tags=test' }; },
+      assert: function (ctx) {
+        var fail = expectStatus(ctx, 200); if (fail) return fail;
+        if (!Array.isArray(ctx.json)) return { pass: false, message: 'La respuesta debía ser un array de mascotas' };
+        return { pass: true, message: 'status 200, ' + ctx.json.length + ' mascotas con tag "test"' };
+      }
+    },
+    {
+      group: 'pets', method: 'POST', path: '/pet', expectLabel: '200',
+      given: 'Crear mascota nueva id=' + petId + ', name="' + petName + '", status="available"',
+      request: function () { return { method: 'POST', url: BASE + '/pet', body: { id: petId, name: petName, status: 'available' } }; },
+      assert: function (ctx) {
+        var fail = expectStatus(ctx, 200); if (fail) return fail;
+        if (!ctx.json || ctx.json.name !== petName) return { pass: false, message: 'response.name debía ser "' + petName + '"' };
+        return { pass: true, message: 'status 200, pet creado con id ' + ctx.json.id };
+      }
+    },
+    {
+      group: 'pets', method: 'GET', path: '/pet/' + petId, expectLabel: '200',
+      given: 'Leer la mascota recién creada por id',
+      request: function () { return { method: 'GET', url: BASE + '/pet/' + petId }; },
+      assert: function (ctx) {
+        var fail = expectStatus(ctx, 200); if (fail) return fail;
+        if (!ctx.json || String(ctx.json.id) !== String(petId)) return { pass: false, message: 'response.id debía ser ' + petId };
+        return { pass: true, message: 'status 200, id ' + ctx.json.id + ', status "' + ctx.json.status + '"' };
+      }
+    },
+    {
+      group: 'pets', method: 'PUT', path: '/pet', expectLabel: '200',
+      given: 'Actualizar status a "sold"',
+      request: function () { return { method: 'PUT', url: BASE + '/pet', body: { id: petId, name: petName, status: 'sold' } }; },
+      assert: function (ctx) {
+        var fail = expectStatus(ctx, 200); if (fail) return fail;
+        if (!ctx.json || ctx.json.status !== 'sold') return { pass: false, message: 'response.status debía ser "sold", fue "' + (ctx.json && ctx.json.status) + '"' };
+        return { pass: true, message: 'status 200, status actualizado a "sold"' };
+      }
+    },
+    {
+      group: 'pets', method: 'GET', path: '/pet/' + petId, expectLabel: '200',
+      given: 'Confirmar que la actualización se persistió',
+      request: function () { return { method: 'GET', url: BASE + '/pet/' + petId }; },
+      assert: function (ctx) {
+        var fail = expectStatus(ctx, 200); if (fail) return fail;
+        if (!ctx.json || ctx.json.status !== 'sold') return { pass: false, message: 'response.status debía seguir siendo "sold"' };
+        return { pass: true, message: 'status 200, status persistido como "sold"' };
+      }
+    },
+    {
+      group: 'pets', method: 'DELETE', path: '/pet/' + petId, expectLabel: '200',
+      given: 'Eliminar la mascota de prueba',
+      request: function () { return { method: 'DELETE', url: BASE + '/pet/' + petId }; },
+      assert: function (ctx) {
+        var fail = expectStatus(ctx, 200); if (fail) return fail;
+        return { pass: true, message: 'status 200, pet ' + petId + ' eliminado' };
+      }
+    },
+    {
+      group: 'pets', method: 'GET', path: '/pet/' + petId, expectLabel: '404',
+      given: 'Verificar que ya no existe tras el DELETE',
+      request: function () { return { method: 'GET', url: BASE + '/pet/' + petId }; },
+      assert: function (ctx) {
+        var fail = expectStatus(ctx, 404); if (fail) return fail;
+        return { pass: true, message: 'status 404 — confirmado, ya no existe' };
+      }
+    },
+    {
+      group: 'pets', method: 'GET', path: '/pet/abc', expectLabel: '404',
+      given: 'Id con formato inválido (no numérico)',
+      request: function () { return { method: 'GET', url: BASE + '/pet/abc' }; },
+      assert: function (ctx) {
+        var fail = expectStatus(ctx, 404); if (fail) return fail;
+        return { pass: true, message: 'status 404 — la API rechaza un id no numérico' };
+      }
+    },
+
+    // ── Tienda (/store) ──────────────────────────────────────────────────
+    {
+      group: 'store', method: 'GET', path: '/store/inventory', expectLabel: '200',
+      given: 'Conteo de inventario por estado',
+      request: function () { return { method: 'GET', url: BASE + '/store/inventory' }; },
+      assert: function (ctx) {
+        var fail = expectStatus(ctx, 200); if (fail) return fail;
+        if (!ctx.json || typeof ctx.json !== 'object') return { pass: false, message: 'La respuesta debía ser un objeto {status: count}' };
+        return { pass: true, message: 'status 200, ' + Object.keys(ctx.json).length + ' estados en inventario' };
+      }
+    },
+    {
+      group: 'store', method: 'POST', path: '/store/order', expectLabel: '200',
+      given: 'Colocar una orden de compra id=' + orderId,
+      request: function () { return { method: 'POST', url: BASE + '/store/order', body: { id: orderId, petId: petId, quantity: 1, status: 'placed', complete: false } }; },
+      assert: function (ctx) {
+        var fail = expectStatus(ctx, 200); if (fail) return fail;
+        if (!ctx.json || ctx.json.status !== 'placed') return { pass: false, message: 'response.status debía ser "placed"' };
+        return { pass: true, message: 'status 200, orden ' + ctx.json.id + ' con status "placed"' };
+      }
+    },
+    {
+      group: 'store', method: 'GET', path: '/store/order/' + orderId, expectLabel: '200',
+      given: 'Leer la orden recién creada por id',
+      request: function () { return { method: 'GET', url: BASE + '/store/order/' + orderId }; },
+      assert: function (ctx) {
+        var fail = expectStatus(ctx, 200); if (fail) return fail;
+        if (!ctx.json || String(ctx.json.id) !== String(orderId)) return { pass: false, message: 'response.id debía ser ' + orderId };
+        return { pass: true, message: 'status 200, orden ' + ctx.json.id + ' con qty ' + ctx.json.quantity };
+      }
+    },
+    {
+      group: 'store', method: 'DELETE', path: '/store/order/' + orderId, expectLabel: '200',
+      given: 'Eliminar la orden de prueba',
+      request: function () { return { method: 'DELETE', url: BASE + '/store/order/' + orderId }; },
+      assert: function (ctx) {
+        var fail = expectStatus(ctx, 200); if (fail) return fail;
+        return { pass: true, message: 'status 200, orden ' + orderId + ' eliminada' };
+      }
+    },
+    {
+      group: 'store', method: 'GET', path: '/store/order/' + orderId, expectLabel: '404',
+      given: 'Verificar que la orden ya no existe tras el DELETE',
+      request: function () { return { method: 'GET', url: BASE + '/store/order/' + orderId }; },
+      assert: function (ctx) {
+        var fail = expectStatus(ctx, 404); if (fail) return fail;
+        return { pass: true, message: 'status 404 — confirmado, orden eliminada' };
+      }
+    },
+
+    // ── Usuarios (/user) ─────────────────────────────────────────────────
+    {
+      group: 'users', method: 'POST', path: '/user', expectLabel: '200',
+      given: 'Crear usuario "' + username + '"',
+      request: function () {
+        return { method: 'POST', url: BASE + '/user', body: { id: userId, username: username, firstName: 'QA', lastName: 'Bot', email: username + '@example.com', password: 'Demo1234!', phone: '0999999999', userStatus: 0 } };
+      },
+      assert: function (ctx) {
+        var fail = expectStatus(ctx, 200); if (fail) return fail;
+        return { pass: true, message: 'status 200, usuario "' + username + '" creado' };
+      }
+    },
+    {
+      group: 'users', method: 'GET', path: '/user/' + username, expectLabel: '200',
+      given: 'Leer el usuario recién creado',
+      request: function () { return { method: 'GET', url: BASE + '/user/' + username }; },
+      assert: function (ctx) {
+        var fail = expectStatus(ctx, 200); if (fail) return fail;
+        if (!ctx.json || ctx.json.username !== username) return { pass: false, message: 'response.username debía ser "' + username + '"' };
+        return { pass: true, message: 'status 200, firstName "' + ctx.json.firstName + '"' };
+      }
+    },
+    {
+      group: 'users', method: 'PUT', path: '/user/' + username, expectLabel: '200',
+      given: 'Actualizar firstName a "QA-Updated"',
+      request: function () {
+        return { method: 'PUT', url: BASE + '/user/' + username, body: { id: userId, username: username, firstName: 'QA-Updated', lastName: 'Bot', email: username + '@example.com', password: 'Demo1234!', phone: '0999999999', userStatus: 1 } };
+      },
+      assert: function (ctx) {
+        var fail = expectStatus(ctx, 200); if (fail) return fail;
+        return { pass: true, message: 'status 200, update aceptado' };
+      }
+    },
+    {
+      group: 'users', method: 'GET', path: '/user/' + username, expectLabel: '200',
+      given: 'Confirmar que la actualización se persistió',
+      request: function () { return { method: 'GET', url: BASE + '/user/' + username }; },
+      assert: function (ctx) {
+        var fail = expectStatus(ctx, 200); if (fail) return fail;
+        if (!ctx.json || ctx.json.firstName !== 'QA-Updated') return { pass: false, message: 'response.firstName debía ser "QA-Updated", fue "' + (ctx.json && ctx.json.firstName) + '"' };
+        return { pass: true, message: 'status 200, firstName persistido como "QA-Updated"' };
+      }
+    },
+    {
+      group: 'users', method: 'GET', path: '/user/login?username=' + username + '&password=Demo1234!', expectLabel: '200',
+      given: 'Login con las credenciales del usuario de prueba',
+      request: function () { return { method: 'GET', url: BASE + '/user/login?username=' + username + '&password=Demo1234!' }; },
+      assert: function (ctx) {
+        var fail = expectStatus(ctx, 200); if (fail) return fail;
+        var okMsg = ctx.text && ctx.text.toLowerCase().includes('logged in');
+        if (!okMsg) return { pass: false, message: 'Esperaba mensaje de sesión iniciada, recibí: ' + ctx.text };
+        return { pass: true, message: 'status 200 — ' + ctx.text.replaceAll('"', '') };
+      }
+    },
+    {
+      group: 'users', method: 'GET', path: '/user/logout', expectLabel: '200',
+      given: 'Cerrar la sesión actual',
+      request: function () { return { method: 'GET', url: BASE + '/user/logout' }; },
+      assert: function (ctx) {
+        var fail = expectStatus(ctx, 200); if (fail) return fail;
+        return { pass: true, message: 'status 200, sesión cerrada' };
+      }
+    },
+    {
+      group: 'users', method: 'DELETE', path: '/user/' + username, expectLabel: '200',
+      given: 'Eliminar el usuario de prueba',
+      request: function () { return { method: 'DELETE', url: BASE + '/user/' + username }; },
+      assert: function (ctx) {
+        var fail = expectStatus(ctx, 200); if (fail) return fail;
+        return { pass: true, message: 'status 200, usuario "' + username + '" eliminado' };
+      }
+    },
+    {
+      group: 'users', method: 'GET', path: '/user/' + username, expectLabel: '404',
+      given: 'Verificar que ya no existe tras el DELETE',
+      request: function () { return { method: 'GET', url: BASE + '/user/' + username }; },
+      assert: function (ctx) {
+        var fail = expectStatus(ctx, 404); if (fail) return fail;
+        return { pass: true, message: 'status 404 — confirmado, usuario eliminado' };
+      }
+    }
+  ];
+
+  var testGroupsEl = document.getElementById('testGroups');
+  var runBtn = document.getElementById('runBtn');
+  var runBtnLabel = document.getElementById('runBtnLabel');
+  var consoleBody = document.getElementById('consoleBody');
+  var statTotal = document.getElementById('statTotal');
+  var statPass = document.getElementById('statPass');
+  var statFail = document.getElementById('statFail');
+  var statDur = document.getElementById('statDur');
+  var pageCount = document.getElementById('pageCount');
+  var running = false;
+
+  var methodClass = { GET: 'method-get', POST: 'method-post', PUT: 'method-put', DELETE: 'method-delete' };
+
+  function escapeHtml(str) {
+    return String(str).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
+  function render() {
+    var count = 0;
+    testGroupsEl.innerHTML = GROUPS.map(function (group) {
+      var groupTests = TESTS.filter(function (t) { return t.group === group.key; });
+      var rows = groupTests.map(function (t) {
+        var globalIndex = TESTS.indexOf(t);
+        count++;
+        return (
+          '<div class="test-item" data-index="' + globalIndex + '">' +
+            '<div class="test-item-row">' +
+              '<span class="test-status-dot" data-role="dot"></span>' +
+              '<span class="method-badge ' + methodClass[t.method] + '">' + t.method + '</span>' +
+              '<span class="test-path">' + escapeHtml(t.path) + '</span>' +
+              '<span class="test-expect">→ ' + escapeHtml(t.expectLabel) + '</span>' +
+              '<span class="test-time" data-role="time">—</span>' +
+              '<span class="test-status-pill" data-role="pill">Pendiente</span>' +
+            '</div>' +
+            '<div class="test-details">' +
+              '<p>Given ' + escapeHtml(t.given) + '</p>' +
+              '<p>When ' + t.method + ' ' + escapeHtml(t.path) + '</p>' +
+              '<p data-role="result">Then …</p>' +
+            '</div>' +
+          '</div>'
+        );
+      }).join('');
+      return (
+        '<div class="test-group">' +
+          '<div class="test-group-header">' + group.icon + ' ' + group.title + '</div>' +
+          '<div class="test-list">' + rows + '</div>' +
+        '</div>'
+      );
+    }).join('');
+
+    pageCount.textContent = String(count).padStart(2, '0');
+    statTotal.textContent = count;
+
+    Array.prototype.forEach.call(testGroupsEl.querySelectorAll('.test-item'), function (item) {
+      item.querySelector('.test-item-row').addEventListener('click', function () {
+        item.classList.toggle('is-open');
+      });
+    });
+  }
+
+  function itemEl(index) {
+    return testGroupsEl.querySelector('.test-item[data-index="' + index + '"]');
+  }
+
+  function setState(item, state) {
+    var pill = item.querySelector('[data-role="pill"]');
+    item.classList.remove('is-pending', 'is-running', 'is-pass', 'is-fail');
+    item.classList.add('is-' + state);
+    var labels = { pending: 'Pendiente', running: 'Ejecutando…', pass: 'Pass', fail: 'Fail' };
+    pill.textContent = labels[state];
+  }
+
+  function logLine(text, kind) {
+    var p = document.createElement('p');
+    p.className = 'console-line' + (kind ? ' console-line--' + kind : '');
+    p.textContent = text;
+    consoleBody.appendChild(p);
+    consoleBody.scrollTop = consoleBody.scrollHeight;
+  }
+
+  function ts() {
+    var d = new Date();
+    var pad = function (n, len) { return String(n).padStart(len || 2, '0'); };
+    return pad(d.getHours()) + ':' + pad(d.getMinutes()) + ':' + pad(d.getSeconds()) + '.' + pad(d.getMilliseconds(), 3);
+  }
+
+  // Real response/request bodies, pretty-printed and capped so one huge payload can't flood the console.
+  function prettyBody(text) {
+    if (!text) return '(sin body)';
+    var out;
+    try { out = JSON.stringify(JSON.parse(text), null, 2); }
+    catch (e) { out = text; }
+    return out.length > 600 ? out.slice(0, 600) + '\n… (truncado, ' + out.length + ' chars total)' : out;
+  }
+
+  function reset() {
+    Array.prototype.forEach.call(testGroupsEl.querySelectorAll('.test-item'), function (item) {
+      setState(item, 'pending');
+      item.classList.remove('is-open');
+      item.querySelector('[data-role="time"]').textContent = '—';
+      item.querySelector('[data-role="result"]').textContent = 'Then …';
+    });
+    consoleBody.innerHTML = '';
+    statPass.textContent = '0';
+    statFail.textContent = '0';
+    statDur.textContent = '0ms';
+  }
+
+  async function runOne(test, index) {
+    var item = itemEl(index);
+    setState(item, 'running');
+
+    var req = test.request();
+    var start = performance.now();
+    var timeMs;
+
+    logLine('[' + ts() + '] → ' + req.method + ' ' + req.url, 'info');
+    if (req.body) logLine(JSON.stringify(req.body, null, 2), 'muted');
+
+    try {
+      var fetchOpts = { method: req.method };
+      if (req.body) {
+        fetchOpts.headers = { 'Content-Type': 'application/json' };
+        fetchOpts.body = JSON.stringify(req.body);
+      }
+      var res = await fetch(req.url, fetchOpts);
+      var text = await res.text();
+      timeMs = Math.round(performance.now() - start);
+      var json = null;
+      try { json = JSON.parse(text); } catch (e) { /* not JSON */ }
+
+      logLine('[' + ts() + '] ← ' + res.status + ' ' + res.statusText + '  (' + timeMs + 'ms)  content-type: ' + (res.headers.get('content-type') || '—'), 'info');
+      logLine(prettyBody(text), 'muted');
+
+      var result = test.assert({ res: res, json: json, text: text });
+      item.querySelector('[data-role="time"]').textContent = timeMs + 'ms';
+      item.querySelector('[data-role="result"]').textContent = 'Then ' + result.message;
+
+      if (result.pass) {
+        setState(item, 'pass');
+        logLine('✓ PASS  ' + test.method + ' ' + test.path + '  — ' + result.message, 'pass');
+        return { pass: true, timeMs: timeMs };
+      } else {
+        setState(item, 'fail');
+        item.classList.add('is-open');
+        logLine('✗ FAIL  ' + test.method + ' ' + test.path + '  — ' + result.message, 'fail');
+        return { pass: false, timeMs: timeMs };
+      }
+    } catch (err) {
+      timeMs = Math.round(performance.now() - start);
+      item.querySelector('[data-role="time"]').textContent = timeMs + 'ms';
+      item.querySelector('[data-role="result"]').textContent = 'Then network/CORS error: ' + err.message;
+      setState(item, 'fail');
+      item.classList.add('is-open');
+      logLine('[' + ts() + '] ✗ error de red/CORS: ' + err.message, 'fail');
+      return { pass: false, timeMs: timeMs };
+    }
+  }
+
+  async function runSuite() {
+    if (running) return;
+    running = true;
+    runBtn.disabled = true;
+    runBtnLabel.textContent = 'Ejecutando…';
+    reset();
+    logLine('$ fetch suite → ' + BASE, 'muted');
+
+    var passCount = 0, failCount = 0, totalDuration = 0;
+
+    for (var i = 0; i < TESTS.length; i++) {
+      if (i > 0) logLine('──────────────────────────────────────────', 'muted');
+      var outcome = await runOne(TESTS[i], i);
+      totalDuration += outcome.timeMs;
+      if (outcome.pass) { passCount++; statPass.textContent = passCount; }
+      else { failCount++; statFail.textContent = failCount; }
+      statDur.textContent = totalDuration + 'ms';
+    }
+
+    logLine('', 'muted');
+    logLine(passCount + ' passed, ' + failCount + ' failed, ' + TESTS.length + ' total — ' + totalDuration + 'ms', failCount ? 'fail' : 'pass');
+
+    running = false;
+    runBtn.disabled = false;
+    runBtnLabel.textContent = 'Ejecutar de nuevo';
+  }
+
+  render();
+  runBtn.addEventListener('click', runSuite);
+})();
+</script>
+</body>
+</html>
