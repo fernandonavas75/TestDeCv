@@ -1,19 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://fernandonavas75.github.io/TestDeCv/index.html</loc>
+    <loc>https://portafoliofernandonavas.cloud/index.html</loc>
     <lastmod>2026-08-23</lastmod>
   </url>
   <url>
-    <loc>https://fernandonavas75.github.io/TestDeCv/projects.html</loc>
+    <loc>https://portafoliofernandonavas.cloud/projects.html</loc>
     <lastmod>2026-08-23</lastmod>
   </url>
   <url>
-    <loc>https://fernandonavas75.github.io/TestDeCv/experience.html</loc>
+    <loc>https://portafoliofernandonavas.cloud/experience.html</loc>
     <lastmod>2026-08-23</lastmod>
   </url>
   <url>
-    <loc>https://fernandonavas75.github.io/TestDeCv/contact.html</loc>
+    <loc>https://portafoliofernandonavas.cloud/contact.html</loc>
+    <lastmod>2026-08-23</lastmod>
+  </url>
+  <url>
+    <loc>https://portafoliofernandonavas.cloud/api-testing.html</loc>
+    <lastmod>2026-08-23</lastmod>
+  </url>
+  <url>
+    <loc>https://portafoliofernandonavas.cloud/suite-petstore.html</loc>
     <lastmod>2026-08-23</lastmod>
   </url>
 </urlset>
